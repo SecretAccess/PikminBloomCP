@@ -13,25 +13,17 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         .container {
             max-width: 600px;
-            margin: 50px auto;
             padding: 20px;
             background: #ffffff;
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-        .badge {
-            font-size: 18px;
-            color: #ffffff;
-            background: #66bb6a;
-            padding: 8px 16px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(102, 187, 106, 0.5);
         }
         h1 {
             font-size: 32px;
@@ -39,211 +31,46 @@
             margin-bottom: 20px;
             text-shadow: 1px 1px 4px rgba(56, 142, 60, 0.5);
         }
-        .description, .countdown {
+        .countdown {
+            font-size: 28px;
+            color: #d32f2f;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .description {
             font-size: 20px;
             color: #555;
-            margin-bottom: 20px;
-        }
-        .login-button, .start-button, .popup-button, .retry-button {
-            display: inline-block;
-            padding: 14px 30px;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #388e3c;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 6px 12px rgba(56, 142, 60, 0.4);
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin: 5px;
-        }
-        .login-button:hover, .start-button:hover, .popup-button:hover, .retry-button:hover {
-            background-color: #2e7d32;
-            transform: translateY(-2px);
-        }
-        .message {
-            font-size: 20px;
-            margin-top: 20px;
-            color: #388e3c;
-            font-weight: bold;
-            display: none;
-            text-shadow: 1px 1px 4px rgba(56, 142, 60, 0.3);
-        }
-        .blinking {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        .loader {
-            display: none;
-            margin: 20px auto;
-            border: 6px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 6px solid #388e3c;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        #result, #popup, #specialMessage, #final-message {
-            font-size: 20px;
-            margin-top: 30px;
-            display: none;
-            color: #388e3c;
-            font-weight: bold;
-        }
-        #popup, #specialMessage {
-            background: #e8f5e9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .countdown span {
-            font-weight: bold;
-            color: #d32f2f;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
-    <!-- 初期画面 -->
-    <div class="container" id="initialScreen">
-        <h1>3周年アニバーサリー<br>ピクミンブルーム<br>大量コイン<br>プレゼント！</h1>
-        
-        <!-- ログインボタン -->
-        <button class="login-button" onclick="startLogin()">ログイン</button>
-        
-        <!-- ログイン中メッセージ -->
-        <p id="loginMessage" class="message blinking">ログイン中です...</p>
-        
-        <!-- 読込中の演出 -->
-        <div id="loader" class="loader"></div>
-        
-        <!-- ログイン確認完了メッセージ -->
-        <p id="loggedInMessage" class="message">山姥さんのアカウントで<br>ログインされました。</p>
-    </div>
-
-    <!-- キャンペーン画面 -->
-    <div class="container" id="campaignScreen" style="display: none;">
-        <div class="badge">公式キャンペーン</div>
-        <h1>ピクミンブルーム<br>大量コイン<br>プレゼント！</h1>
-        
-        <p class="description">ピクミンブルームをご愛用いただきありがとうございます。期間限定で、ゲーム内で使える<b>3333コイン</b>が抽選で当たるキャンペーンを開催中です！今すぐ参加して運試ししてみましょう。</p>
-        
-        <!-- カウントダウンタイマー -->
-        <p class="countdown" id="countdown">残り時間: <span id="countdownTimer"></span></p>
-        
-        <button class="start-button" onclick="startLottery()">抽選スタート</button>
-
-        <p id="result"></p>
-        <div id="popup">
-            <p>残念ながら今回の抽選はハズレでしたが、10コインを消費して再抽選が可能です。再抽選の当選確率は33%アップします。</p>
-            <button class="retry-button" onclick="confirmRetry()">挑戦する</button>
-            <button class="retry-button" onclick="offerFiveCoins()">挑戦しない</button>
-        </div>
-
-        <div id="specialMessage">
-            <p>残念ながら今回の抽選はハズレでしたが、山姥さんだけの特別なお知らせがあります。</p>
-            <button class="popup-button" onclick="revealFinalMessage()">お知らせを見る</button>
-        </div>
-
-        <div id="final-message"></div>
+    <div class="container">
+        <h1>3周年アニバーサリー<br>ピクミンブルーム<br>特別アイテムプレゼント！</h1>
+        <p class="description">日本時間11月8日18時までお待ちください！</p>
+        <div class="countdown" id="countdown">00:00:00</div>
     </div>
 
     <script>
-        function startLogin() {
-            document.querySelector(".login-button").style.display = "none";
-            document.getElementById("loginMessage").style.display = "block";
-            
-            setTimeout(() => {
-                document.getElementById("loginMessage").style.display = "none";
-                document.getElementById("loader").style.display = "block";
+        function updateCountdown() {
+            const targetDate = new Date("2024-11-08T18:00:00+09:00"); // 日本時間 11月8日 18:00
+            const now = new Date();
 
-                setTimeout(() => {
-                    document.getElementById("loader").style.display = "none";
-                    document.getElementById("loggedInMessage").style.display = "block";
+            const timeDiff = targetDate - now;
 
-                    setTimeout(() => {
-                        document.getElementById("initialScreen").style.display = "none";
-                        document.getElementById("campaignScreen").style.display = "block";
-                        startCountdown();
-                    }, 2000);
-                }, 2000);
-            }, 1500);
+            if (timeDiff <= 0) {
+                window.location.href = "https://github.com/SecretAccess/PikminBloom"; // カウントダウン後のリダイレクト先
+                return;
+            }
+
+            const hours = String(Math.floor((timeDiff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const minutes = String(Math.floor((timeDiff / (1000 * 60)) % 60)).padStart(2, '0');
+            const seconds = String(Math.floor((timeDiff / 1000) % 60)).padStart(2, '0');
+
+            document.getElementById("countdown").textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        function startCountdown() {
-            let timeLeft = 60 * 1;
-            const countdownTimer = document.getElementById("countdownTimer");
-
-            const timerInterval = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                countdownTimer.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                
-                timeLeft--;
-
-                if (timeLeft < 0) {
-                    clearInterval(timerInterval);
-                    countdownTimer.textContent = "終了しました";
-                }
-            }, 1000);
-        }
-
-        function startLottery() {
-            const button = document.querySelector(".start-button");
-            button.disabled = true;
-            button.style.backgroundColor = "#ccc";
-            button.innerText = "抽選中...";
-
-            setTimeout(() => {
-                document.getElementById("result").innerText = "抽選結果を確認中です...";
-                document.getElementById("result").style.display = "block";
-
-                setTimeout(() => {
-                    document.getElementById("result").innerText = "残念！今回は当たりませんでした。";
-                    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "center" });
-                    setTimeout(() => document.getElementById("popup").style.display = "block", 2000);
-                }, 2000);
-            }, 1500);
-        }
-
-        function confirmRetry() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("result").innerText = "再抽選中...";
-
-            setTimeout(() => {
-                document.getElementById("result").innerText = "残念！今回も当たりませんでした。";
-                document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "center" });
-                setTimeout(() => {
-                    document.getElementById("specialMessage").style.display = "block";
-                }, 2000);
-            }, 2000);
-        }
-
-        function offerFiveCoins() {
-            document.getElementById("popup").innerHTML = `
-                <p>【今だけ】<br>5コインで挑戦可能です。挑戦しますか？</p>
-                <button class="retry-button" onclick="confirmRetry()">挑戦する</button>
-                <button class="retry-button" onclick="repeatOffer()">挑戦しない</button>
-            `;
-            document.getElementById("popup").style.display = "block";
-        }
-
-        function repeatOffer() {
-            offerFiveCoins();
-        }
-
-        function revealFinalMessage() {
-            document.getElementById("specialMessage").style.display = "none";
-            document.getElementById("result").style.display = "none";
-            document.getElementById("final-message").innerText = "実は…2025年6月に、\n莉緒がお姉さんになります！";
-            document.getElementById("final-message").style.display = "block";
-        }
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
