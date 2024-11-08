@@ -64,12 +64,17 @@
             position: fixed;
             bottom: 0;
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
             align-items: center;
         }
         .footer img {
             width: 80px;
-            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
         }
     </style>
 </head>
@@ -87,9 +92,10 @@
         <div class="countdown" id="countdown">00:00:00</div>
     </div>
 
-    <!-- フッター画像 -->
+    <!-- フッター画像と注意事項 -->
     <div class="footer">
         <img src="2ff87f99-58f5-49c9-8b77-1275bb7b6dea.png" alt="タイトルロゴ">
+        <p class="disclaimer">このURLは第三者に共有しないでください。<br>無断での転載や使用は禁止されています。</p>
     </div>
 
     <script>
