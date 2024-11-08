@@ -11,19 +11,21 @@
             font-family: "Arial", sans-serif;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 20px 0;
             line-height: 1.6;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
         }
         .top-image {
             margin-bottom: 20px;
+            padding-top: 20px;
         }
         .top-image img {
-            width: 150px;
+            max-width: 150px;
+            height: auto;
         }
         .container {
             max-width: 600px;
@@ -62,9 +64,13 @@
         }
         .disclaimer {
             font-size: 12px;
-            color: #888;
-            text-align: center;
-            margin-top: 10px;
+            color: #666;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 600px;
         }
     </style>
 </head>
